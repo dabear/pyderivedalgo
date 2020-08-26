@@ -26,7 +26,11 @@ def mgdl_to_mmol(glucose, molecular_weight=180):
 #calibration result was:
 # [18:54:22] {"status":"complete","slope_slope":0.000015166666666666661,"slope_offset":-0.00016666666666664771,"offset_offset":-19.500000000000114,"offset_slope":0.004500000000000032,"uuid":"calibrationmetadata-fef0eba2-b270-4d3e-8ba4-f39b1ac05c06","isValidForFooterWithReverseCRCs":49778}
 runner = DerivedAlgorithmRunner(0.000015166666666666661, -0.00016666666666664771, 0.004500000000000032, -19.500000000000114)
- 
+
+
+#
+# Raw glucose and raw temperature will normally be extracted from FRAM body, so these are just examples
+#
 glucose = runner.GetGlucoseFromRaw(raw_glucose=1900, raw_temp=4500)
 
 print("calculated glucose is: {} mgdl or {} mmol or {} (last two should be equal)".format(glucose, glucose/18, mgdl_to_mmol(glucose) ) )
